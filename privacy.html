@@ -23,8 +23,8 @@
 <table>
 <tr><th>Permission</th><th>What we use it for</th></tr>
 <tr><td>pages_show_list</td><td>To list the Pages the connecting owner manages, so we can confirm that the Lady Lola and J Page is the one selected.</td></tr>
-<tr><td>pages_manage_posts</td><td>To publish posts (a photo post or a video Reel) that the owners have approved, to the Lady Lola and J Page.</td></tr>
-<tr><td>pages_manage_engagement</td><td>To add our own first comment (which holds our affiliate link) to a post we just published.</td></tr>
+<tr><td>pages_manage_posts</td><td>To publish posts (a photo post or a video Reel) that the owners have approved to the Lady Lola and J Page, one approved post at a time. Posts on a Facebook Page are public.</td></tr>
+<tr><td>pages_manage_engagement</td><td>To add our own first comment (which can hold our affiliate link) to a post we just published, as the Page. The Studio does not reply to, edit, hide or delete other people&rsquo;s comments.</td></tr>
 <tr><td>pages_read_engagement</td><td>To read back the Page and the posts we published (post ID, link, time and visibility) to confirm that a post went out correctly.</td></tr>
 </table>
 <p>Facebook also grants <em>public_profile</em> and <em>pages_read_user_content</em> along with these permissions. The Studio does not use either one, and it does not store anything obtained through them.</p>
@@ -39,13 +39,19 @@
 <li>Aggregate figures are kept as business records. They are not personal data about any individual, and they are not removed by the deletion steps below.</li>
 </ul>
 
+<h3>2.3 What the Studio sends to Facebook when we publish</h3>
+<p>When an owner sends an approved post, the Studio sends Facebook the post text (which includes our affiliate-link disclosure and, in some posts, the affiliate link), the image or video file we prepared, and, if we included one, our first comment. It authenticates with the Page access token described in section 3. The post and comment appear publicly on our Page like any other Page post. The Studio does not use Facebook&rsquo;s own scheduling feature. It also does not edit or delete posts after they are published; if a post needs to be changed or removed, an owner does that on Facebook.</p>
+<p>Affiliate links lead to retailers (for example Amazon or Walmart). If a visitor clicks one, that retailer handles the visit under its own privacy policy. The Studio does not receive Facebook visitors&rsquo; identities from these clicks.</p>
+
 <h2>3. What the Studio stores</h2>
 <table>
 <tr><th>Item</th><th>Where and how</th></tr>
 <tr><td>Facebook Page access token</td><td>Encrypted, in a protected folder on our computer (see section 4).</td></tr>
 <tr><td>Meta app secret</td><td>Encrypted, in the same protected folder.</td></tr>
 <tr><td>Connection record: Page ID and name, the permissions Facebook granted, and the times the connection was made and checked</td><td>In the Studio&rsquo;s local database.</td></tr>
-<tr><td>Our own posts: the text, link and media we prepared, the post ID and address Facebook returns, the time, and the outcome</td><td>In the Studio&rsquo;s local database and media folders.</td></tr>
+<tr><td>Our own posts: the text, link and media we prepared, the post ID and address Facebook returns, the time, whether our first comment was posted (and its ID), and the outcome</td><td>In the Studio&rsquo;s local database and media folders.</td></tr>
+<tr><td>One-time authorization records: which exact post an owner authorized, the Page, the time window, and whether it was used</td><td>In the Studio&rsquo;s local database.</td></tr>
+<tr><td>The result of our check that a published post is visible to the public</td><td>In the Studio&rsquo;s local database.</td></tr>
 <tr><td>A request log: the type of request and its address with long ID numbers hidden, and any error message Facebook returns</td><td>In the Studio&rsquo;s local database.</td></tr>
 <tr><td>Aggregate performance figures (section 2.2)</td><td>In the Studio&rsquo;s local database.</td></tr>
 </table>
@@ -56,12 +62,12 @@
 <li><strong>Encryption.</strong> The Page token and the app secret are encrypted with Windows data protection (through the Electron &ldquo;safeStorage&rdquo; feature). This is designed to help protect them from being read by other Windows accounts on the computer and from being copied to and used on another computer.</li>
 <li><strong>Separate location.</strong> The encrypted files are kept outside the Studio&rsquo;s data folder, outside our backups, and outside our project files.</li>
 <li><strong>Limited use of credentials.</strong> The token is decrypted only inside the Studio program when it is needed to contact Facebook. It is not shown in the Studio&rsquo;s windows and is not sent to any service other than Facebook. The AI helpers described in section 6 are blocked from opening the folder that holds the encrypted files.</li>
-<li><strong>Approval before publishing.</strong> The Studio has a global publishing hold. A post can be sent to Facebook only after an owner has approved that exact post and has issued a one-time authorization for it.</li>
+<li><strong>Approval before publishing.</strong> The Studio has a global publishing hold that stays on. A post can be sent to Facebook only after an owner has approved that exact post and has issued a one-time authorization for that post, that version, that Page and that time window. The authorization is used up when the send begins. The Studio checks again, immediately before sending, that the Page is the right one, that the text, link and media are unchanged since approval, and that Facebook still accepts the token. An owner starts each send by pressing a button in the Studio; the Studio does not send posts on its own.</li>
 </ul>
 <div class="note">No method of storage is perfect. Windows encryption does not protect against software or a person who is already signed in to our Windows account on our computer, so we also keep that computer secured.</div>
 
 <h2>5. How we use the data</h2>
-<p>Only to run our own Facebook Page: to confirm the right Page is connected, to publish posts we approved, to add our first comment, to confirm that a post is live, to understand how our posts perform in aggregate, and to keep an accurate record of what we published.</p>
+<p>Only to run our own Facebook Page: to confirm the right Page is connected, to publish posts we approved, to add our first comment, to confirm that a post is live and publicly visible, to understand how our posts perform in aggregate, and to keep an accurate record of what we published.</p>
 
 <h2>6. Who else receives it</h2>
 <ul>
@@ -77,7 +83,7 @@
 <tr><th>Data</th><th>How long</th></tr>
 <tr><td>Page access token and connection status</td><td>Until an owner selects <strong>Disconnect</strong> in the Studio, which removes them. (Removing the app from Facebook also ends its access.)</td></tr>
 <tr><td>Meta app secret</td><td>It is <strong>not</strong> removed by Disconnect. It stays until we delete it as part of a deletion request.</td></tr>
-<tr><td>Page ID record, post records and request log</td><td>For as long as we need them to run the Page and keep an accurate record of what we published. The Studio does not delete them automatically, and Disconnect does not remove them. We delete them when you make a deletion request.</td></tr>
+<tr><td>Page ID record, post records, authorization records and request log</td><td>For as long as we need them to run the Page and keep an accurate record of what we published. The Studio does not delete them automatically, and Disconnect does not remove them. We delete them when you make a deletion request.</td></tr>
 <tr><td>Aggregate performance figures</td><td>Kept as business records.</td></tr>
 <tr><td>Scheduled backups</td><td>Approximately five weeks. The Studio keeps the newest seven daily backups plus one backup per week for about four weeks, and replaces older ones automatically. This is an estimate based on how the backup routine is written.</td></tr>
 <tr><td>Manually created backups</td><td>Until we delete them. They do not expire automatically.</td></tr>
@@ -86,7 +92,7 @@
 <p><strong>Disconnecting is not the same as deleting.</strong> Disconnect removes the token and the saved connection status only. A complete deletion request (section 8) also covers the app secret, the Page ID record, the post records and the request log. Backups are handled as described on the Data Deletion Instructions page.</p>
 
 <h2>8. Your choices and deleting your data</h2>
-<p>You can remove the Studio&rsquo;s access at any time from your Facebook settings (Settings &amp; privacy, Settings, Apps and Websites or Business Integrations). You can also ask us to delete the Facebook-related information the Studio retains by emailing <a href="mailto:ladylolaandj@gmail.com?subject=Facebook%20data%20deletion%20request">ladylolaandj@gmail.com</a> with the subject <strong>Facebook data deletion request</strong>. We will acknowledge the request and give a status update or a confirmation within 30 days. We do not guarantee that every backup copy is deleted within 30 days; if anything remains, we will tell you what and how it will be handled.</p>
+<p>You can remove the Studio&rsquo;s access at any time from your Facebook settings (Settings &amp; privacy, Settings, Apps and Websites or Business Integrations). You can also ask us to delete the Facebook-related information the Studio retains (the connection, our post and authorization records, and the request log) by emailing <a href="mailto:ladylolaandj@gmail.com?subject=Facebook%20data%20deletion%20request">ladylolaandj@gmail.com</a> with the subject <strong>Facebook data deletion request</strong>. We will acknowledge the request and give a status update or a confirmation within 30 days. We do not guarantee that every backup copy is deleted within 30 days; if anything remains, we will tell you what and how it will be handled.</p>
 <p>The full steps are on our <a href="data-deletion.html">Data Deletion Instructions</a> page. We do not operate an automatic deletion service.</p>
 
 <h2>9. Children</h2>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy - Lady Lola and J Studio</title>
+<meta name="description" content="How the Lady Lola and J Studio app handles Facebook Page data.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="in"><a href="index.html"><img src="app-icon-1024.png" alt="Lady Lola and J logo"> Lady Lola and J Studio</a></div></header>
+<main>
+<h1>Privacy Policy</h1>
+<p><strong>Lady Lola and J Studio</strong><br>Effective: November 23, 2026</p>
+
+<h2>1. Who we are and what this app is</h2>
+<p>Lady Lola and J is an affiliate-marketing and lifestyle brand based in Northwest Arkansas, United States. <strong>Lady Lola and J Studio</strong> (&ldquo;the Studio&rdquo;) is a private desktop application that we run on one Windows computer to prepare content and to manage publishing to our own Facebook Page, &ldquo;Lady Lola and J.&rdquo;</p>
+<p>The Studio is not a public service. Only the owners of Lady Lola and J use it, and no one else can sign in to it. It does not have customers, members, or visitors.</p>
+
+<h2>2. Facebook data the Studio accesses</h2>
+<h3>2.1 Through the Facebook connection</h3>
+<p>When an owner connects the Studio to Facebook, Facebook asks the owner to approve the permissions below. The Studio works with one Page only: Lady Lola and J.</p>
+<table>
+<tr><th>Permission</th><th>What we use it for</th></tr>
+<tr><td>pages_show_list</td><td>To list the Pages the connecting owner manages, so we can confirm that the Lady Lola and J Page is the one selected.</td></tr>
+<tr><td>pages_manage_posts</td><td>To publish posts (a photo post or a video Reel) that the owners have approved, to the Lady Lola and J Page.</td></tr>
+<tr><td>pages_manage_engagement</td><td>To add our own first comment (which holds our affiliate link) to a post we just published.</td></tr>
+<tr><td>pages_read_engagement</td><td>To read back the Page and the posts we published (post ID, link, time and visibility) to confirm that a post went out correctly.</td></tr>
+</table>
+<p>Facebook also grants <em>public_profile</em> and <em>pages_read_user_content</em> along with these permissions. The Studio does not use either one, and it does not store anything obtained through them.</p>
+<p>If the connecting owner also manages other Pages or has a personal profile, the Studio does not store them, name them, or post to them.</p>
+<p>Through this connection the Studio does <strong>not</strong> request or store follower lists, the names or profiles of people who like or comment, or private messages. After we add our own comment to a post, the Studio may read the comments on that same post only to check that ours is there. It does not save what other people wrote; it saves only a fingerprint of our own comment.</p>
+
+<h3>2.2 Performance figures (aggregate statistics)</h3>
+<p>We track how our posts perform, such as views, link clicks, interactions, and the total number of followers. These are <strong>aggregate counts</strong>: numbers for a Page or a post as a whole, for example &ldquo;17 views&rdquo; or &ldquo;53 followers.&rdquo; They do not identify any person.</p>
+<ul>
+<li>These figures do <em>not</em> come through the Facebook connection described above. They come from Meta Business Suite and similar dashboards that we view while signed in to our own accounts. They are typed in by us or read from the dashboard pages in the Studio&rsquo;s own browser window, which keeps only the numbers.</li>
+<li>Those dashboards can show other people&rsquo;s names, for example next to a comment. We do not save names, profiles, comment text, or follower lists in the Studio.</li>
+<li>Aggregate figures are kept as business records. They are not personal data about any individual, and they are not removed by the deletion steps below.</li>
+</ul>
+
+<h2>3. What the Studio stores</h2>
+<table>
+<tr><th>Item</th><th>Where and how</th></tr>
+<tr><td>Facebook Page access token</td><td>Encrypted, in a protected folder on our computer (see section 4).</td></tr>
+<tr><td>Meta app secret</td><td>Encrypted, in the same protected folder.</td></tr>
+<tr><td>Connection record: Page ID and name, the permissions Facebook granted, and the times the connection was made and checked</td><td>In the Studio&rsquo;s local database.</td></tr>
+<tr><td>Our own posts: the text, link and media we prepared, the post ID and address Facebook returns, the time, and the outcome</td><td>In the Studio&rsquo;s local database and media folders.</td></tr>
+<tr><td>A request log: the type of request and its address with long ID numbers hidden, and any error message Facebook returns</td><td>In the Studio&rsquo;s local database.</td></tr>
+<tr><td>Aggregate performance figures (section 2.2)</td><td>In the Studio&rsquo;s local database.</td></tr>
+</table>
+<p>We do not store the connecting owner&rsquo;s personal access token. It is held in memory only while the owner chooses the Page, and then it is discarded. Tokens for any other Page are never stored.</p>
+
+<h2>4. How we protect it</h2>
+<ul>
+<li><strong>Encryption.</strong> The Page token and the app secret are encrypted with Windows data protection (through the Electron &ldquo;safeStorage&rdquo; feature). This is designed to help protect them from being read by other Windows accounts on the computer and from being copied to and used on another computer.</li>
+<li><strong>Separate location.</strong> The encrypted files are kept outside the Studio&rsquo;s data folder, outside our backups, and outside our project files.</li>
+<li><strong>Limited use of credentials.</strong> The token is decrypted only inside the Studio program when it is needed to contact Facebook. It is not shown in the Studio&rsquo;s windows and is not sent to any service other than Facebook. The AI helpers described in section 6 are blocked from opening the folder that holds the encrypted files.</li>
+<li><strong>Approval before publishing.</strong> The Studio has a global publishing hold. A post can be sent to Facebook only after an owner has approved that exact post and has issued a one-time authorization for it.</li>
+</ul>
+<div class="note">No method of storage is perfect. Windows encryption does not protect against software or a person who is already signed in to our Windows account on our computer, so we also keep that computer secured.</div>
+
+<h2>5. How we use the data</h2>
+<p>Only to run our own Facebook Page: to confirm the right Page is connected, to publish posts we approved, to add our first comment, to confirm that a post is live, to understand how our posts perform in aggregate, and to keep an accurate record of what we published.</p>
+
+<h2>6. Who else receives it</h2>
+<ul>
+<li><strong>Meta (Facebook).</strong> The Studio sends requests to Facebook&rsquo;s servers to do the tasks above.</li>
+<li><strong>AI service (Anthropic&rsquo;s Claude).</strong> The Studio uses Claude to help us research products, draft and check posts, and review results. When it runs, the AI helpers can read the Studio&rsquo;s local records and can use the Studio&rsquo;s own tools. As a result, Facebook-related information that may be sent to Claude includes: the Page name and ID, the connection status and permission names, our post drafts, publishing records and outcomes (post IDs and links), and our aggregate performance figures, as well as anything we type to the AI ourselves. It does not include the Page token or the app secret: the encrypted files are blocked from the AI helpers, and the decrypted values are never given to them. Anthropic handles that information under its own terms and privacy policy.</li>
+<li><strong>Cloud backup storage.</strong> We keep backups of the Studio&rsquo;s database and media on our computer and copy them to cloud storage we own (Microsoft OneDrive and Google Drive). These backups include the connection record, our post records and the request log. They do <em>not</em> include the encrypted token or app secret. We also copy our business records (such as our decision log and status notes) to the same storage. Those notes can mention the Page name and ID and the permission names. They never contain tokens or secrets.</li>
+<li><strong>Website hosting.</strong> These policy pages are hosted on GitHub Pages. GitHub may log visits to them under its own policies. We do not run analytics or tracking on these pages.</li>
+</ul>
+<p>We do not sell Facebook data and we do not share it with advertisers or data brokers.</p>
+
+<h2>7. How long we keep it</h2>
+<table>
+<tr><th>Data</th><th>How long</th></tr>
+<tr><td>Page access token and connection status</td><td>Until an owner selects <strong>Disconnect</strong> in the Studio, which removes them. (Removing the app from Facebook also ends its access.)</td></tr>
+<tr><td>Meta app secret</td><td>It is <strong>not</strong> removed by Disconnect. It stays until we delete it as part of a deletion request.</td></tr>
+<tr><td>Page ID record, post records and request log</td><td>For as long as we need them to run the Page and keep an accurate record of what we published. The Studio does not delete them automatically, and Disconnect does not remove them. We delete them when you make a deletion request.</td></tr>
+<tr><td>Aggregate performance figures</td><td>Kept as business records.</td></tr>
+<tr><td>Scheduled backups</td><td>Approximately five weeks. The Studio keeps the newest seven daily backups plus one backup per week for about four weeks, and replaces older ones automatically. This is an estimate based on how the backup routine is written.</td></tr>
+<tr><td>Manually created backups</td><td>Until we delete them. They do not expire automatically.</td></tr>
+<tr><td>Information sent to Claude</td><td>Held by Anthropic under its own terms, which we do not control.</td></tr>
+</table>
+<p><strong>Disconnecting is not the same as deleting.</strong> Disconnect removes the token and the saved connection status only. A complete deletion request (section 8) also covers the app secret, the Page ID record, the post records and the request log. Backups are handled as described on the Data Deletion Instructions page.</p>
+
+<h2>8. Your choices and deleting your data</h2>
+<p>You can remove the Studio&rsquo;s access at any time from your Facebook settings (Settings &amp; privacy, Settings, Apps and Websites or Business Integrations). You can also ask us to delete the Facebook-related information the Studio retains by emailing <a href="mailto:ladylolaandj@gmail.com?subject=Facebook%20data%20deletion%20request">ladylolaandj@gmail.com</a> with the subject <strong>Facebook data deletion request</strong>. We will acknowledge the request and give a status update or a confirmation within 30 days. We do not guarantee that every backup copy is deleted within 30 days; if anything remains, we will tell you what and how it will be handled.</p>
+<p>The full steps are on our <a href="data-deletion.html">Data Deletion Instructions</a> page. We do not operate an automatic deletion service.</p>
+
+<h2>9. Children</h2>
+<p>The Studio is a business tool for adults. It is not directed to children under 13 and does not knowingly collect information from them.</p>
+
+<h2>10. Changes to this policy</h2>
+<p>If we change how the Studio handles data, we will update this page and its effective date.</p>
+
+<h2>11. Contact</h2>
+<p>Lady Lola and J<br>Northwest Arkansas, United States<br>Email: <a href="mailto:ladylolaandj@gmail.com">ladylolaandj@gmail.com</a></p>
+</main>
+<footer><a href="index.html">Home</a><a href="privacy.html">Privacy Policy</a><a href="data-deletion.html">Data Deletion</a><a href="terms.html">Terms of Service</a></footer>
+</body>
+</html>
